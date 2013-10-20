@@ -32,16 +32,17 @@ namespace DrinksMachine
             Console.WriteLine("1 - Tea, milk and sugar | " + selections[0].ToString());
             Console.WriteLine("2 – Tea, milk only      | " + selections[1].ToString());
             Console.WriteLine("3 – Tea, sugar only     | " + selections[2].ToString());
+            Console.WriteLine("--------------------------------------");
             ck = Console.ReadKey(true); //The existance of the true in this statement makes the keypress invisble in the console           
             do
             {
                 switch (ck.Key)//Switch statement below has duplicates to handle both numpad and keyboard key presses
                 {
                     case ConsoleKey.D1:
-                        selections[0] = selections[0] + 1;                        
+                        selections[0] = selections[0] + 1;
                         break;
                     case ConsoleKey.D2:
-                        selections[1] = selections[1] + 1;                        
+                        selections[1] = selections[1] + 1;
                         break;
                     case ConsoleKey.D3:
                         selections[2] = selections[2] + 1;
@@ -56,16 +57,17 @@ namespace DrinksMachine
                         selections[2] = selections[2] + 1;
                         break;
                 }
-                ClearLine();
-                ClearLine();
-                ClearLine();
+                for (int i = 0; i < 4; )
+                {
+                    ClearLine();
+                    i++;
+                }
                 Console.WriteLine("1 - Tea, milk and sugar | " + selections[0].ToString());
                 Console.WriteLine("2 – Tea, milk only      | " + selections[1].ToString());
                 Console.WriteLine("3 – Tea, sugar only     | " + selections[2].ToString());
+                Console.WriteLine("--------------------------------------");
                 ck = Console.ReadKey(true);
             } while (ck.Key != ConsoleKey.D4);
-
-
             Console.ReadLine();
         }
         public static void ClearLine()
