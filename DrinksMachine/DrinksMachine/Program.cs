@@ -34,7 +34,7 @@ namespace DrinksMachine
             Console.WriteLine("3 – Tea, sugar only     | " + selections[2].ToString());
             Console.WriteLine("--------------------------------------");
             ck = Console.ReadKey(true); //The existance of the true in this statement makes the keypress invisble in the console           
-            do
+            while (ck.Key != ConsoleKey.D4 || ck.Key != ConsoleKey.NumPad4)
             {
                 switch (ck.Key)//Switch statement below has duplicates to handle both numpad and keyboard key presses
                 {
@@ -66,9 +66,22 @@ namespace DrinksMachine
                 Console.WriteLine("2 – Tea, milk only      | " + selections[1].ToString());
                 Console.WriteLine("3 – Tea, sugar only     | " + selections[2].ToString());
                 Console.WriteLine("--------------------------------------");
+
+            if(ck.Key == ConsoleKey.NumPad4)
+            {
+                Console.WriteLine("Selection Finished");
+                break;
+            }
+            else if (ck.Key == ConsoleKey.D4)
+            {
+                Console.WriteLine("Selection Finished");
+                break;
+            }
                 ck = Console.ReadKey(true);
-            } while (ck.Key != ConsoleKey.D4);
-            Console.ReadLine();
+            }
+
+            Console.ReadKey(true);
+            
         }
         public static void ClearLine()
         {
